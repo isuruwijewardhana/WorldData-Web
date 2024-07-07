@@ -35,7 +35,7 @@ fetch("https://restcountries.com/v3.1/all")
                             <h2 class="card-title">${element.name.common}</h2><br><b>${element.name.official}</b>
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Capital: ${element.capital ? element.capital[0] : 'N/A'}</li>
+                            <li class="list-group-item">Capital: ${element.capital}</li>
                             <li class="list-group-item">Region: ${element.region}</li>
                             <li class="list-group-item">Population: ${element.population.toLocaleString()}</li>
                         </ul>
@@ -46,3 +46,57 @@ fetch("https://restcountries.com/v3.1/all")
         countryCards.innerHTML += card;
     });
 });
+
+// function searchCountry() {
+//     let userInput = document.getElementById("txtInput").value;
+
+//     let flagImg = document.getElementById("flagImg");
+//     let name = document.getElementById("name");
+//     let officialName = document.getElementById("officialName");
+//     let capital = document.getElementById("Capital");
+//     let region = document.getElementById("region");
+//     let population = document.getElementById("population");
+
+//     fetch(`https://restcountries.com/v3.1/name/${userInput}`)
+//     .then(res=>res.json())
+//     .then(data=>{
+//         data.forEach(obj=>{
+//             console.log(obj);
+//                 flagImg.src = obj.flags.png;
+//                 name.innerText = obj.name.common;
+//                 officialName.innerText = obj.name.official;
+//                 capital.innerText = obj.capital;
+//                 region.innerText = obj.region;
+//                 population.innerText = obj.population;
+//             })
+//         })
+//     }
+
+function searchCountry(){
+    let userInput = document.getElementById("txtInput").value;
+
+    let flagImg = document.getElementById("flagImg");
+    let name = document.getElementById("name");
+    let officialName = document.getElementById("officialName");
+    let capital = document.getElementById("capital");
+    let region = document.getElementById("region");
+    let population = document.getElementById("population");
+    let googleMapsLink = document.getElementById("googleMapsLink");
+
+    fetch(`https://restcountries.com/v3.1/name/${userInput}`)
+    .then(res=>res.json())
+    .then(data=>{
+        data.forEach(obj=>{
+            console.log(obj);
+            flagImg.src=obj.flags.png
+            name.innerText=obj.name.common
+            officialName.innerText=obj.name.official
+            capital.innerText=obj.capital;
+            region.innerText=obj.region;
+            population.innerText=obj.population.toLocaleString()
+            googleMapsLink.href=obj.maps.googleMaps
+
+            document.querySelector('.searchCard1').classList.remove('hidden');
+        })
+    })
+}

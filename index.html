@@ -35,6 +35,50 @@
     .card:hover {
         transform: scale(1.05);
     }
+
+    .header2container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* height: 100vh;  */
+        background-color: transparent;
+    }
+
+    .header-container {
+        text-align: center;
+        background-color: transparent;
+        padding: 10px;
+        border-radius: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-width: 5px;
+        border-color: #4CAF50;
+        border-style: solid;
+    }
+
+    .header-container h2 {
+        color: #4CAF50;
+        margin: 0;
+    }
+
+    .searchCard1 {
+        margin-top: 20px;
+        text-align: center;
+        margin: 0 auto;
+        width: 50%;
+        border: 5px solid #ccc;
+        padding: 20px;
+        border-radius: 20px;
+
+    }
+
+    .searchCard1 .card-body {
+        text-align: left;
+    }
+
+
+    .hidden {
+        display: none;
+    }
 </style>
 
 <body>
@@ -43,19 +87,86 @@
 
         </table>
     </div> -->
+
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand">
                 <h1><b>Countries&nbsp;<i class="fa-solid fa-earth-americas"></i></b></h1>
             </a>
             <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <input id="txtInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit" onclick="searchCountry()">Search</button>
             </form>
         </div>
     </nav>
 
+    <!-- <div class="container m-2 bg-black p-3">
+        <div class="d-flex" role="search">
+            <input id="txtInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit" onclick="searchCountry()">Search</button>
+        </div>
+    </div> -->
+
+    <!-- <div class="container">
+        <div class="row">
+            <img class="img-thumbnail"  id="flagImg" src="" alt="flag">
+            <h1 id="name">Name</h1>
+            <p id="officialName">Official Name </p>
+            <p id="capital">Capital</p>
+            <p id="region">Region</p>
+            <p id="population">Population </p>
+        </div>
+    </div> -->
+    <br>
+
+    <div class="searchCard1 hidden">
+        <div class="card-body">
+            <h2 class="card-title" id="name"><small></small>Name</h2>
+            <p class="card-text" id="officialName"><small></small>Official Name</p>
+            <p class="card-text" id="capital"><small></small>Capital</small></p>
+            <p class="card-text" id="region"><small></small>Region</small></p>
+            <p class="card-text" id="population"><small></small>Population</small></p>
+            <p class="card-text"><small><a href="#" class="card-link" id="googleMapsLink">Google Maps</a></small></p>
+        </div>
+        <img src="" class="card-img-left" id="flagImg" alt="flag">
+    </div>
+
+    <!-- <div class="searchCard">
+    <div class="card" style="width: 18rem; display: flex; flex-direction: row;">
+        <img src="" class="card-img-left" id="flagImg" alt="flag">
+        <div class="card-content">
+          <div class="card-body">
+            <h2 class="card-title"id="name">Name</h2>
+            <p class="card-text"id="officialName">Official Name</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"id="capital">Capital</li>
+            <li class="list-group-item"id="region">Region</li>
+            <li class="list-group-item"id="population">Population</li>
+          </ul>
+          <div class="card-body">
+            <a href="#" class="card-link" id="googleMapsLink">Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </div>  -->
+
+    <br>
+
+    <div class="header2container">
+        <div class="header-container">
+            <h2>All Countries</h2>
+        </div>
+    </div>
+
     <div id="countryCards" class="d-flex flex-wrap m-4"></div>
+
+    <script>
+        function searchCountry() {
+            var searchCard = document.querySelector('.searchCard1');
+            searchCard.classList.toggle('hidden');
+        }
+    </script>
 
     <script src="app.js"></script>
 </body>
