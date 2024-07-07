@@ -76,11 +76,14 @@ function searchCountry(){
     let userInput = document.getElementById("txtInput").value;
 
     let flagImg = document.getElementById("flagImg");
+    let flags = document.getElementById("flags");
     let name = document.getElementById("name");
     let officialName = document.getElementById("officialName");
     let capital = document.getElementById("capital");
     let region = document.getElementById("region");
+    let subregion = document.getElementById("subregion");
     let population = document.getElementById("population");
+    let area = document.getElementById("area");
     let googleMapsLink = document.getElementById("googleMapsLink");
 
     fetch(`https://restcountries.com/v3.1/name/${userInput}`)
@@ -89,11 +92,14 @@ function searchCountry(){
         data.forEach(obj=>{
             console.log(obj);
             flagImg.src=obj.flags.png
+            flags.innerText=obj.flags.alt
             name.innerText=obj.name.common
             officialName.innerText=obj.name.official
             capital.innerText=obj.capital;
             region.innerText=obj.region;
+            subregion.innerText=obj.subregion;
             population.innerText=obj.population.toLocaleString()
+            area.innerText=obj.area
             googleMapsLink.href=obj.maps.googleMaps
 
             document.querySelector('.searchCard1').classList.remove('hidden');

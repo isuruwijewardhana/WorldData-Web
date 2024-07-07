@@ -79,6 +79,18 @@
     .hidden {
         display: none;
     }
+
+    .footer {
+        width: 100%;
+        text-align: center;
+        padding: 30px 0;
+    }
+
+    .footer h4 {
+        margin-bottom: 25px;
+        margin-top: 20px;
+        font-weight: 600;
+    }
 </style>
 
 <body>
@@ -123,12 +135,16 @@
         <div class="card-body">
             <h2 class="card-title" id="name"><small></small>Name</h2>
             <p class="card-text" id="officialName"><small></small>Official Name</p>
-            <p class="card-text" id="capital"><small></small>Capital</small></p>
-            <p class="card-text" id="region"><small></small>Region</small></p>
-            <p class="card-text" id="population"><small></small>Population</small></p>
+            <p class="card-text"><small><strong>Capital:&nbsp;</strong></small> <span id="capital"></span></p>
+            <p class="card-text"><small><strong>Region:&nbsp;</strong></small> <span id="region"></span></p>
+            <p class="card-text"><small><strong>Subregion:&nbsp;</strong></small> <span id="subregion"></span></p>
+            <p class="card-text"><small><strong>Population:&nbsp;</strong></small> <span id="population"></span></p>
+            <p class="card-text"><small><strong>Area:&nbsp;</strong></small> <span id="area"></span></p>
             <p class="card-text"><small><a href="#" class="card-link" id="googleMapsLink">Google Maps</a></small></p>
         </div>
         <img src="" class="card-img-left" id="flagImg" alt="flag">
+        <br>
+        <p class="card-text" id="flags"><small></small>Flags</p>
     </div>
 
     <!-- <div class="searchCard">
@@ -160,6 +176,21 @@
     </div>
 
     <div id="countryCards" class="d-flex flex-wrap m-4"></div>
+
+    <section class="footer">
+        <h4>About Us</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore quo necessitatibus eaque officia obcaecati
+            sit eveniet facilis minima? <br>Deserunt quod rerum hic earum possimus tempore natus est delectus beatae
+            aliquid!</p>
+        <div class="icons">
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-x-twitter"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-linkedin-in"></i>
+        </div>
+        <p>Made by @isuru wijewardhana<i class="fa-brands fa-github"></i><br><i class="fa-regular fa-copyright"></i>2024
+        </p>
+    </section>
 
     <script>
         function searchCountry() {
